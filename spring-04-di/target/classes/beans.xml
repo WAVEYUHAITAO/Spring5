@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="address" class="com.hito.pojo.Address">
+        <property name="address" value="文登市"/>
+    </bean>
+
+
+    <bean id="student" class="com.hito.pojo.Student">
+        <!--普通值注入-->
+        <property name="name" value="海涛"/>
+        <!--bean注入，使用ref-->
+        <property name="address" ref="address"/>
+        <!--数组注入-->
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>水浒传</value>
+                <value>三国演绎</value>
+            </array>
+        </property>
+        <!--List-->
+        <property name="hobbys">
+            <list>
+                <value>听歌</value>
+                <value>敲代码</value>
+                <value>跑步</value>
+            </list>
+        </property>
+        <!--Map-->
+        <property name="card">
+            <map>
+                <entry key="身份证" value="35711021544865413"/>
+                <entry key="银行卡" value="1231586123"/>
+                <entry key="地铁卡" value="1234561231"/>
+            </map>
+        </property>
+        <!--set-->
+        <property name="games">
+            <set>
+                <value>lol</value>
+                <value>coc</value>
+                <value>bob</value>
+            </set>
+        </property>
+        <!--null-->
+        <property name="wife">
+            <null/>
+        </property>
+
+        <!--Properties-->
+        <property name="info">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
